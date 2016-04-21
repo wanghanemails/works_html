@@ -1,0 +1,86 @@
+header{
+    display: none;
+}
+.allHeader{
+    display: none;
+}
+.reread-head-pc{
+    display: none;
+}
+.reread-container{
+    margin: auto 15px;
+    overflow: hidden;
+}
+.reread-head-iphone{
+
+    margin-bottom: 8px;
+    margin-top: 18px;
+}
+.reread-head-iphone span img{
+    width: 41px;
+    height: 12px;
+}
+.reread-head-iphone .reread-number{
+    color: #307291;
+}
+.reread-container .title{
+    font-size: 20px;
+    font-family: STHeiti;
+    margin-bottom: 10px;
+    line-height: 26px;
+}
+.reread-container .reread-aside{
+    display: none;
+}
+.reread-container .people-pc{
+    display: none;
+}
+.reread-container .people-iphone img{
+    width: 100%;
+}
+.reread-container .time-iphone{
+    margin-bottom: 17px;
+}
+.reread-container .time-iphone span{
+    margin-right: 12px;
+    color: #999999;
+}
+.reread-article .article-img-pc{
+    display: none;
+}
+.reread-article p{
+    margin-bottom: 28px;
+    font-size: 17px;
+    font-family: "STXihei";
+}
+.reread-container .reread-article .article-img-iphone{
+    width: 100%;
+}
+.lead-top-img-pc{
+    display: none;
+}
+.lead-top-img-iphone img{
+    width: 56px;
+    height: 46px;
+
+}
+.lead-bottom-img{
+    display: none;
+}
+.lead .lead-top-img-iphone{
+    position: absolute;
+}
+.lead p{
+    font-size: 12px;
+    font-family: "STXihei";
+    color: #666666;
+    margin-left: 45px;
+    z-index: 3;
+    position: relative;
+}
+.lead{
+    margin-bottom: 20px;
+}
+footer{
+    display: none;
+}

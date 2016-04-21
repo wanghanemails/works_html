@@ -1,0 +1,54 @@
+
+.logo{
+    width: 99px;
+    height: 21px;
+    margin: 16px 0 8px 16px ;
+}
+.title{
+    color: #242424;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: PingFang SC-Medium,sans-serif;
+    margin:8px 16px 16px 16px;
+    line-height: 28px;
+}
+.font-title{
+    margin:8px 16px 10px 16px;
+    font-size: 11px;
+    line-height: 16px;
+    color: #aaaaaa;
+}
+.content-first{
+    font-size: 18px;
+    color: #242424;
+    line-height: 28px;
+    margin: 10px 16px 10px 16px;
+    font-family: 'PingFang SC-Regular',sans-serif;
+}
+.babyImg{
+    width: 344px;
+    height: 196px;
+    margin: 10px 16px 10px 16px;
+}
+.content-second{
+    font-size: 18px;
+    color: #242424;
+    line-height: 28px;
+    font-family: 'PingFang SC-Regular',sans-serif;
+    margin: 10px 16px 8px 16px;
+}
+.content-third{
+    font-size: 18px;
+    color: #242424;
+    line-height: 28px;
+    font-family: 'PingFang SC-Regular',sans-serif;
+    margin: 8px 16px 12px 16px;
+}
+.bottom-font{
+    font-size: 14px;
+    color: #666666;
+    line-height: 16px;
+    margin: 12px 0 24px 16px;
+}
+a:link {color: #666666}
+a:visited {color: #666666}

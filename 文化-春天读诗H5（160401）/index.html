@@ -1,0 +1,291 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="yes" name=" apple-mobile-web-app-capable" />
+<title>文化-春天读诗第三季</title>
+<link rel="stylesheet" href="styles/style.css" />
+<script src="http://y2.ifengimg.com/l/2015/15/ee2fc7603e29e1d/zepto.min.js"></script>
+<!--探针 begin-->
+<!--#include virtual="/cmpp_12005/chip/s_common_adjs_inice.html"-->
+<!--#include virtual="/cmpp_12005/chip/s_common_statjs_pv.html"-->
+<!--探针 end-->
+</head>
+<body>
+<img src="http://y1.ifengimg.com/a/2016/0401/639b415f6879d64size99_w300_h300.png" style="position:fixed; left:-100%;"/>
+<div id="loading">
+  <div class="icon inco-move"><img src="http://y3.ifengimg.com/ifengimcp/pic/20141229/36bf7efc10f1a3f1bad9_size33_w1024_h1024.png" id="fenghuang" width="100%" ></div>
+</div>
+<div class="wrap" id="wrap">
+  <div id="orien" class="orien">
+    <p>请锁定竖排方向后，横向浏览。</p>
+  </div>
+  <div class="scrollContent" id="scrollContent">
+    <div class="content s1" id="s1">
+      <div class="niao"></div>
+      <div class="chuan"></div>
+      <div class="c1t" id="c1t"></div>
+      <div class="c2t" id="c2t"></div>
+      <div id="playBtn" class="playBtn" data-vid="0162f02b-4809-43e0-8201-158ff6c3454c">
+        <div class="play" style="width:100%; height:100%;"></div>
+      </div>
+      <div id="container1" style="display:none;">
+        <div class="JzClose"><img src="http://y0.ifengimg.com/b080dfc1c083bf2c/2014/51/video_close.png" /></div>
+      </div>
+      <div class="hint"></div>
+    </div>
+    <div class="content s2" id="s2">
+      <div class="wz01" id="wz01"></div>
+      <div class="logo"></div>
+      <div class="hint"></div>
+    </div>
+    <div class="content s3" id="s3">
+      <div class="wz02" id="wz02"></div>
+      <div class="logo"></div>
+      <div class="hint"></div>
+    </div>
+    <div class="content s4" id="s4">
+      <div class="wz03" id="wz03"></div>
+      <div class="logo"></div>
+      <div class="hint"></div>
+    </div>
+    <div class="content s5" id="s5">
+      <div class="wz04" id="wz04"></div>
+      <div class="logo"></div>
+      <div class="hint"></div>
+    </div>
+    <div class="content s6" id="s6">
+      <div class="wz05" id="wz05"></div>
+      <div class="logo"></div>
+      <div class="hint"></div>
+    </div>
+    <div class="content s7" id="s7">
+      <div class="wz06" id="wz06"></div>
+      <div class="logo"></div>
+      <div class="hint"></div>
+    </div>
+    <div class="content s8" id="s8">
+      <div class="wz07" id="wz07"></div>
+      <div class="logo"></div>
+      <div class="hint"></div>
+    </div>
+    <div class="content s9" id="s9">
+      <div class="wz08" id="wz08"></div>
+      <div class="logo"></div>
+      <div class="hint"></div>
+    </div>
+    <div class="content s10" id="s10">
+      <div class="wz09" id="wz09"></div>
+      <div class="logo"></div>
+      <div class="hint"></div>
+    </div>
+    <div class="content s11" id="s11">
+      <div class="tit" id="tit"></div>
+      <div class="title" id="title"></div>
+      <div class="logoR"></div>
+      <div class="ret" id="ret"></div>
+    </div>
+  </div>
+</div>
+<script>
+var flag,s=0;
+var cW=document.documentElement.clientWidth;
+var cH=document.documentElement.clientHeight;
+var wrap=document.getElementById('wrap');
+var scrollContent=document.getElementById('scrollContent');	
+var s1=document.getElementById('s1');
+var s2=document.getElementById('s2');
+var s3=document.getElementById('s3');
+var s4=document.getElementById('s4');
+var s5=document.getElementById('s5');
+var s6=document.getElementById('s6');
+var s7=document.getElementById('s7');
+var s8=document.getElementById('s8');
+var s9=document.getElementById('s9');
+var s10=document.getElementById('s10');
+var s11=document.getElementById('s11');
+
+var sTop=scrollContent.offsetTop;
+/*var xxx=sTop;*/
+wrap.style.height=cH+'px';
+scrollContent.style.height=cH*11+'px';
+wrap.style.width=cW+'px';
+scrollContent.style.width=cW+'px';
+for(i=1;i<=11;i++){
+	eval("s"+i+".style.width=cW+'px'");
+	eval("s"+i+".style.height=cH+'px'");
+}
+
+//move top
+function moveT(){
+	if(sTop<=flag){
+	   clearInterval(timerT);
+	}
+	else{
+	   sTop-=20;
+	   if(sTop<flag){
+		  sTop=flag;
+		}
+	   scrollContent.style.top=sTop+"px";
+	}
+} 
+//move bottom
+function moveB(){
+	if(sTop>=flag){
+	   clearInterval(timerB);
+	}
+	else{
+	   sTop+=20;
+	   if(sTop>flag){
+		  sTop=flag;
+		}
+	   scrollContent.style.top=sTop+"px";
+	}
+}
+//手指触屏
+function touchstart(event){
+	//event.preventDefault();
+	var touch = event.touches[0];
+	startY = touch.pageY;
+	disY=0;
+} 
+//手指滑动
+function touchmove(event){
+	event.preventDefault();	
+	var touch = event.touches[0];
+	disY = touch.pageY - startY;
+}
+//手指离开
+function touchEnd(event) {
+	
+	sTop=scrollContent.offsetTop;
+	
+	if(disY<0&&s<=9){
+		  s=s+1;
+		  flag=-cH*s; 
+		  timerT=setInterval("moveT()",2);
+		  //add dong hua 
+		  if(s==1){
+			 document.getElementById('wz01').className="wz01 wxxs";
+		   }
+		  if(s==2){
+			 document.getElementById('wz02').className="wz02 wxxs";
+		  }
+		  if(s==3){
+			 document.getElementById('wz03').className="wz03 wxxs";
+		  }
+		  if(s==4){
+			 document.getElementById('wz04').className="wz04 wxxs";
+		  }
+		  if(s==5){
+			 document.getElementById('wz05').className="wz05 wxxs";
+		  }
+		  if(s==6){
+			 document.getElementById('wz06').className="wz06 wxxs";
+		  }
+		  if(s==7){
+			 document.getElementById('wz07').className="wz07 wxxs";
+		  }
+		  if(s==8){
+			 document.getElementById('wz08').className="wz08 wxxs";
+		  }
+		  if(s==9){
+			 document.getElementById('wz09').className="wz09 wxxs";
+		  }
+		  if(s==10){
+			 document.getElementById('tit').className="tit wxxs";
+			 document.getElementById('title').className="title wxxs";
+			 document.getElementById('ret').className="ret retA";
+		  }
+		  
+	}
+	if(disY>0&&s>0){
+		  s=s-1; 
+		  flag=-cH*s;
+		  timerB=setInterval("moveB()",2);
+	}
+}
+
+document.getElementById("ret").addEventListener('touchstart', function () {
+  s=0;
+  scrollContent.style.top=0+"px";
+});
+
+//load over
+window.onload=function(){
+  setTimeout('document.getElementById("loading").style.display="none"',500);
+  playPone();
+  
+};
+function playPone(){
+	document.getElementById('c1t').style.webkitAnimation="c1tA 3s 0.3s ease";
+	document.getElementById('c2t').style.webkitAnimation="c2tA 2s 0.3s ease";
+	document.getElementById('playBtn').style.webkitAnimation="shun360 3s 2s linear infinite";
+};
+
+//判断横竖屏
+function Sorientation() {
+	if (window.orientation == 90 || window.orientation == -90) {
+		document.getElementById("orien").style.display="block";
+	} else {
+		document.getElementById("orien").style.display="none";
+	};
+}
+window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", Sorientation, false);
+//监听事件
+document.getElementById("wrap").addEventListener("touchstart", touchstart, false);
+document.getElementById("wrap").addEventListener("touchmove", touchmove, false);
+document.getElementById("wrap").addEventListener("touchend", touchEnd, false);	
+</script>
+<!-- ifeng视频 begin--> 
+<script src="http://y2.ifengimg.com/314bd925cdd17196/2014/0814/video.js"></script> 
+<script src="http://y0.ifengimg.com/components/video/20140813/v2/videoMobile.js"></script> 
+<script>
+(function(){
+	var sW = $(".content").width();	
+	var sH = $(".content").height();	
+
+	var player1 = $('#playBtn'), vid1 = player1.attr('data-vid');
+	var video1;
+
+	video1 = new SpecailVideo();
+	video1.create({
+	  guid: vid1,
+	  containerId: 'container1' , // 这个地方必须是id
+	  AutoPlay: false, // 是否自动播放
+	  width: sW, 
+	  height: sW*9/16, 
+	  subjectid: 'mirror-lff-0813', // 组id，尽量以专题名加业内实例化序号来生成，保证不重复
+	  // 播放列表，如果没有，可以传回当前的guid或者传回''；
+	  guidList: vid1,
+	  // 播放下一条的回调，主要用于操作播放列表的样式。
+	  getNextGuid: function (guid) {
+	  }
+	});					
+	
+	player1.find('.play').tap(function(){
+		var c1H = $(".content").height()/2-sW*9/32;				
+		player1.find('.poster').hide();
+		player1.siblings('#container1').show();
+		video1.play();
+		player1.siblings('#container1').find("#player").css("top",c1H);
+	});
+
+	$("#container1").find(".JzClose").tap(function(){
+		video1.pause();
+		player1.find('.poster').show();
+		player1.siblings('#container1').hide();
+		return true; 
+	});
+})();
+</script>
+<!-- ifeng视频 end--> 
+<!--探针 begin-->
+<!--#include virtual="/cmpp_12005/chip/s_common_index_stat_body_end.html"--> 
+<!--#include virtual="/cmpp_12005/chip/s_common_statjs_wr.html"--> 
+<!--探针 end-->
+</body>
+</html>

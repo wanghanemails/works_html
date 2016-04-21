@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script src="http://y0.ifengimg.com/fe/detail/scripts/base-core_5664eba4.min.js"></script>
+
+<script src="http://y0.ifengimg.com/commonpage/1130/F-RequireJS.min.js"></script>
+
+
+<script src="http://y0.ifengimg.com/38716b164e0f5e63/2013/1213/md5.js"></script>
+<script>
+    var cmt_config = {
+        'docTitle' : '江平：改革开放和民事立法',
+        'docUrl' : 'http://dxw.ifeng.com/shilu/jiangping/1.shtml', // 期刊或专题地址
+
+        'isSpecial' : false, // 是否为专题
+
+        'skey' : 'f17c8c',
+        'hotLimit' : 5,
+        'newLimit' : 5
+    };
+</script>
+<script>
+    cmt_config.cmtViewUrl = 'http://gentie.ifeng.com/view.html';
+    cmt_config.cmtViewSpecialUrl = 'http://gentie.ifeng.com/view.html';
+</script>
+<script src="http://y0.ifengimg.com/fe/detail/scripts/base-core_5664eba4.min.js"></script>
+<div id="js_cmtContainer"></div> <!--注意噢，这个div的ID跟下面创建组件时传入的参数一支-->
+<script>
+
+    // 此处为各终端上，评论组件的样式文件。可自己订制～
+    if(glue.device.type =="pc"){
+        document.write('<link rel="stylesheet" href="http://y0.ifengimg.com/a/2015/1030/yhc/detail_depmodules_pc_fc58ea2a.min.css">');
+    }
+
+    if(glue.device.type =="mobile"){
+        document.write('<link rel="stylesheet" href="http://y0.ifengimg.com/fe/detail/styles/detail_depmodules_mobile_23cd421b.min.css">');
+    }
+
+    if(glue.device.type =="pad"){
+        document.write('<link rel="stylesheet" href="http://y0.ifengimg.com/fe/detail/styles/detail_depmodules_pad_181b1941.min.css">');
+    }
+    // 此处为评论组件依赖的一些其他组件
+    requirejs.config({
+        paths:{
+            "public_login": "http://y1.ifengimg.com/commonpage/public_login/2015/public_login_new.min",
+            "jquery#1.8.1" : "http://y1.ifengimg.com/fe/jQuery/jquery-1.8.1.min",
+            "artTemplate#3.0.3" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_07b1b7a3.min"
+        },
+        waitSeconds: 20,shim: {}});
+
+    // 根据设备不同，加载不同的脚本
+    if (glue.device.type == "pad") {
+        requirejs.config({
+            paths: {
+                "F_comment_new#1.2.6" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_pad_4919f12f.min"
+            },
+            waitSeconds: 20,
+            shim: {}
+        });
+    } else if (glue.device.type == "mobile") {
+        requirejs.config({
+            paths: {
+                "F_comment_new#1.2.6" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_mobile_9ff0c225.min"
+            },
+            waitSeconds: 20,
+            shim: {}
+        });
+    } else if (glue.device.type == "pc") {
+        requirejs.config({
+            paths: {
+                "F_comment_new#1.2.6" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_pc_a07575e1.min"
+            },
+            waitSeconds: 20,
+            shim: {}
+        });
+    }
+    require(['jquery#1.8.1'], function() {
+        jQuery.noConflict();
+    });
+    require(['F_comment_new#1.2.6'], function(cmt) {
+        var cmtData = cmt_config;
+        if(cmtData.isSpecial){
+            cmtData.specUrl = cmtData.docUrl; // 如果为专题，speUrl为docUrl
+        }
+        new cmt(glue).create('js_cmtContainer', cmtData); // 注意这里传入了一个dom id和data
+    });
+</script>
+<script>
+    (function(jq){
+        //定义数据
+
+        var data_info = eval('('+jq(".js_shareList").closest("[data-info]").attr("data-info")+')');
+        var text = data_info.text, pic = typeof data_info.pic !== 'undefined' ? data_info.pic:'', url = data_info.url;
+        var last_url = ""+encodeURIComponent(url)+"&title="+encodeURIComponent(text)+"&pic="+encodeURIComponent(pic)+"";
+        var last_url1 = ""+encodeURIComponent(url)+"&title="+encodeURIComponent(text)+"&pics="+encodeURIComponent(pic)+"";
+
+        //调用分享、更新二维码、更新评论数函数
+
+
+
+        updateCmt();
+
+        //更新评论数函数
+
+        function updateCmt(){
+            var docName = data_info.title, docUrl = data_info.url;
+            var query = 'http://comment.ifeng.com/get.php?format=js&docUrl=' + encodeURIComponent(docUrl) + "&job=",
+                    href='';
+            if (docUrl.indexOf("/special/") != -1) {
+                href = "http://comment.ifeng.com/viewspecial.php?docName=" + encodeURIComponent(docName) + "&docUrl=" + encodeURIComponent(docUrl) + "&skey=f17c8c";
+                query += '9';
+            } else {
+                href = "http://comment.ifeng.com/view.php?docName=" + encodeURIComponent(docName) + "&docUrl=" + encodeURIComponent(docUrl) + "&skey=f17c8c";
+                query +="1";
+            }
+            jq('.js_cmtUrl').attr('href',href);
+            jq('#commentJoinCountHref').attr('href',href);
+            jq('#commentCountHref').attr('href',href);
+
+            getScript(query, getCommentCount, jq(".js_cmtNum"));
+            function getCommentCount(dom) {
+                var data = commentJsonVarStr___;
+                var commentCount = data.count;
+                var commentJoinCount = data.join_count;
+                dom.html(commentCount);
+                jq("#commentCount").html(data.count);
+                jq("#commentJoinCount").html(data.join_count);
+            }
+
+
+        }
+
+        function getScript(src, callback, el) {
+            var head = document.getElementsByTagName("head")[0];
+            var js = document.createElement("script");
+            js.setAttribute("src", src);
+            js.onload = js.onreadystatechange = function() {
+                if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
+                    head.removeChild(js);
+                    if (callback){
+                        callback(el);
+                    }
+                }
+            }
+            head.appendChild(js);
+        }
+    }(jQuery));
+</script>
+</body>
+</html>

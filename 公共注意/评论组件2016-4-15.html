@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script src="http://y0.ifengimg.com/fe/detail/scripts/base-core_5664eba4.min.js"></script>
+
+<script src="http://y0.ifengimg.com/commonpage/1130/F-RequireJS.min.js"></script>
+
+<script>
+    var suffix = device.type === "pc" ? ".pc" : ".mobile";
+
+    requirejs.config({
+        paths: {
+            // 基础模块
+            "F": "http://y0.ifengimg.com/base/origin/F-amd-1.2.0.min",
+            "FM":  "http://y0.ifengimg.com/commonpage/1130/F-amd-mobile-1.1.0.min",
+            "debug": "http://y0.ifengimg.com/commonpage/1130/F-amd-mobile-1.1.0.min",
+
+            // 头部
+            'keywords': 'http://m0.ifengimg.com/keywords',
+            "header": "http://y0.ifengimg.com/commonpage/1130/header.pc.min",
+            "search": "http://y0.ifengimg.com/commonpage/1130/header" + suffix + ".min",
+
+            // 轮播图
+            "ppt.pc": "http://y0.ifengimg.com/commonpage/1130/ppt.pc.min",
+            "ppt.mobile": "http://y0.ifengimg.com/commonpage/1205/ppt.mobile.min",
+
+            // 视频播放器
+            "video.pc": "http://y0.ifengimg.com/commonpage/2015/0107/video.pc.min",
+            "video.mobile": "http://y0.ifengimg.com/commonpage/1130/video.mobile.min",
+
+            // 评论相关
+            "comment.number": "http://y0.ifengimg.com/commonpage/2016/0125/comment.number.min",
+            "recommend.comment_number": "http://y0.ifengimg.com/commonpage/2016/0125/comment.number.min",
+            "comment.pc": "http://y0.ifengimg.com/a/2015/0530/comment.pc.v3.min",
+            "comment.mobile": "http://y0.ifengimg.com/commonpage/1216/v1/comment.mobile.min",
+
+
+            // tab切换 推荐 看了还看
+            "tabControl.pc": "http://y0.ifengimg.com/commonpage/1218/recommend.pc.min",
+            "recommend.pc": "http://y1.ifengimg.com/a/2015/0519/comment.pc.v2.0519.min",
+            "readAndRead": "http://y0.ifengimg.com/commonpage/1206/recommend" + suffix + ".min",
+
+            "survey.pc": "http://y0.ifengimg.com/commonpage/1203/survey.pc.min",
+
+            //pc端分享(内容分享和划词分享)
+            "share.pc": "http://y0.ifengimg.com/commonpage/2016/0125/utils.pc.min",
+            //移动端分享(内容分享)
+            "share.mobile": "http://y0.ifengimg.com/commonpage/2014/0612/utils.mobile.min",
+            //返回顶部
+            "utils": "http://y0.ifengimg.com/commonpage/2016/0125/utils.pc.min",
+            //48小时点击排行浮动
+            "floatIt.pc" : "http://y0.ifengimg.com/commonpage/2016/0125/utils.pc.min",
+            "picLazy": "http://y0.ifengimg.com/commonpage/2016/0125/utils.pc.min",
+
+            // 通用登录
+            "public_login": "http://y1.ifengimg.com/commonpage/20151202/public_login.min"
+        },
+        waitSeconds: 20,
+        shim: {}
+    });
+    tasker.runAfterDomReady();
+</script>
+<script>
+    if (device.type === "mobile") {
+        document.write('<link rel="stylesheet" href="http://y0.ifengimg.com/a/2015/1231/x/iphonev4.css"/>');
+    } else if (device.type === "pad") {
+        document.write('<link rel="stylesheet" href="http://y0.ifengimg.com/a/2015/1231/x/ipadV3.css"/>');
+    } else {
+        document.write('<link rel="stylesheet" href="http://y0.ifengimg.com/a/2015/1230/article/pc.css"/>');
+    }
+</script>
+
+<script>
+    // @TODO: 全局参数
+    define("detail", [], function () {
+        return {
+            "docName": "悉尼华裔教员公开辱华 烧中国护照侮辱留学生(图)",
+            "docUrl": "http://news.ifeng.com/a/20160415/48463584_0.shtml",
+            "summary": '微博号&ldquo;澳洲事儿&rdquo;4月14日爆料称一位就职于悉尼大学的华裔教师公开辱华，不仅屡次侮辱澳洲留学生，称其为&ldquo;留学豚（猪）&rdquo;，甚至公开发布自己焚烧中国护照的视',
+            "skey":"8129d2",
+            "image": "http://y0.ifengimg.com/fck/2016_16/ecc01b65c874343_w593_h585.png",
+            "channelTitle": "资讯"            };
+    });
+</script>
+<script>
+    if (device.type !== "pc") {
+        define('renderCommentCount', [], function () {
+            return function (num1, num2) {
+                window["__commentCount"] = [num1, num2];
+                var doms = document.querySelectorAll(".js_commentCount");
+                for (var i = 0, iLen = doms.length; i < iLen; i++) {
+                    doms[i].innerHTML = '<span class="ss_none"><em>' + num2 + '</em>人参与</span><em>' +
+                            num1 + '</em><span class="ss_none">评论</span>';
+                }
+            };
+        });
+
+        define("jumpToCommentView", ["detail"], function (detail) {
+
+            var skey = detail.skey ? '&skey=' + encodeURIComponent(detail.skey) : "";
+            var speUrl = detail.speUrl ? 'speUrl=' + encodeURIComponent(detail.speUrl) : "";
+            var url = 'http://gentie.ifeng.com/view.html';
+            url = url + "?docName=" + encodeURIComponent(detail.docName) +
+                    '&docUrl=' + encodeURIComponent(detail.docUrl) + skey + speUrl;
+            return function () {
+                window.open(url, "comment", "");
+            }
+        });
+
+        creatTasker("auto", ["FM", "detail", "renderCommentCount"], function (F, detail, renderCommentCount) {
+            var commentCountUrl = 'http://comment.ifeng.com/get.php';
+
+            if (typeof __commentCount !== "undefined") {
+                renderCommentCount(__commentCount[0], __commentCount[1]);
+            } else {
+                F.jsonp({
+                    url: commentCountUrl,
+                    data: {
+                        doc_url: detail.docUrl,
+                        format:'js',
+                        job:14,
+                        callback:'callbackGetFastCommentCount'
+                    },
+                    cache:true,
+                    callback: "callbackGetFastCommentCount",
+                    success: function (cmtJson) {
+                        renderCommentCount(cmtJson.count, cmtJson.join_count);
+                    }
+                });
+            }
+        }, "next", "获取评论数");
+    } else {
+        creatTasker("auto", ["comment.number", "detail"], function (commentNumber, detail) {
+            commentNumber(detail);
+        }, "next", "当前位置获取评论数");
+        creatTasker("auto", ["recommend.comment_number"], function (commentNumber) {
+            commentNumber();
+        }, "next", "推荐位置获取评论数");
+    }
+</script>
+<script>
+    // @TODO: 获取评论数
+    if (device.type !== "pc") {
+        creatTasker("auto", ["FM", "renderCommentCount", "jumpToCommentView"], function (F, renderCommentCount, jumpToCommentView) {
+            if (typeof __commentCount !== "undefined") {
+                renderCommentCount(__commentCount[0], __commentCount[1]);
+            }
+            F.tap(F.one("js_commentCount_bottom"), function () {
+                jumpToCommentView();
+            });
+        }, "next", "当前位置获取评论数");
+    } else if (typeof window['PEOPLE_NUMBER'] !== "undefined") {
+        document.getElementById("js_commentCount_bottom").getElementsByTagName("em")[0].innerHTML = window['PEOPLE_NUMBER'];
+        document.getElementById("js_commentCount_bottom").getElementsByTagName("em")[1].innerHTML = window['COMMENT_NUMBER'];
+    }
+</script>
+</div>
+</div>
+</div>
+<div class="box02 ss_none" style=" height:16px;"></div>
+<!-- seo标签描述 -->
+<div style="display:none;">
+    <meta itemprop="url" content="http://news.ifeng.com/a/20160415/48463584_0.shtml">
+    <meta itemprop="indexUrl" content="http://news.ifeng.com/">
+    <meta itemprop="genre" content="凤凰资讯">
+    <meta itemprop="description" content="微博号&ldquo;澳洲事儿&rdquo;4月14日爆料称一位就职于悉尼大学的华裔教师公开辱华，不仅屡次侮辱澳洲留学生，称其为&ldquo;留学豚（猪）&rdquo;，甚至公开发布自己焚烧中国护照的视">
+    <span itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
+    <span itemprop="name"></span>
+    <span itemprop="thumbnailUrl"></span>
+    </span>
+</div>
+</div>
+<div id="cmtBox">
+    <div id="js_cmtContainer"></div>
+    <script>
+
+        if(glue.device.type =="pc"){
+            document.write('<link rel="stylesheet" href="http://y0.ifengimg.com/a/2015/1208/F_comment_new_main_pc_e7fed39c.min.css">');
+        }
+
+        if(glue.device.type =="mobile"){
+            document.write('<link rel="stylesheet" href="http://y3.ifengimg.com/a/2015/1206/F_comment_new_main_mobile_85f308ba.min.css">');
+        }
+
+
+        if(glue.device.type =="pad"){
+            document.write('<link rel="stylesheet" href="http://y3.ifengimg.com/a/2015/1206/F_comment_new_main_pad_85f308ba.min.css">');
+        }
+
+        requirejs.config({
+            paths: {
+                "jquery#1.8.1": "http://y1.ifengimg.com/fe/jQuery/jquery-1.8.1.min",
+                "artTemplate#3.0.3": "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_07b1b7a3.min",
+                "F#1.2.0": "http://y0.ifengimg.com/base/origin/F-amd-1.2.0.min"
+            },
+            waitSeconds: 20,
+            shim: {}
+        });
+
+        require(['jquery#1.8.1'], function() {
+            jQuery.noConflict(true);
+        });
+        if (glue.device.type == "pad") {
+            requirejs.config({
+                paths: {
+                    "F_comment_new#1.2.31" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_pad_9f428805.min"
+                },
+                waitSeconds: 20,
+                shim: {}
+            });
+        } else if (glue.device.type == "mobile") {
+            requirejs.config({
+                paths: {
+                    "F_comment_new#1.2.31" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_mobile_d33d4593.min"
+                },
+                waitSeconds: 20,
+                shim: {}
+            });
+        } else if (glue.device.type == "pc") {
+            requirejs.config({
+                paths: {
+                    "F_comment_new#1.2.31" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_pc_50040223.min"
+                },
+                waitSeconds: 20,
+                shim: {}
+            });
+        }
+
+        if (device.type === "pc") {
+
+            creatTasker('auto', ["F"], function(F) {
+
+                var top = F.offset(F.query("#cmtBox")).top - F.height(window);
+                var commentLoad = false;
+
+                var commentIt = function() {
+                    commentLoad = true;
+                    require(['F_comment_new#1.2.31', 'detail'], function(cmt, detail) {
+                        var data = {
+                            'docUrl':detail.docUrl,
+                            'docTitle': detail.docName,
+                            'speUrl': detail.speUrl || '',
+                            'skey': detail.skey,
+                            'hotLimit':2,
+                            'newLimit':2,
+                            'cmtViewUrl':'http://gentie.ifeng.com/view.html',
+                            'cmtViewSpecialUrl':'http://gentie.ifeng.com/view.html'
+                        }
+                        new cmt(glue).create('js_cmtContainer', data);
+                    });
+                }
+
+                if (F.scrollTop(window) > top) {
+                    commentIt();
+                } else {
+                    F.on(window, "scroll", function() {
+                        if (commentLoad === false) {
+                            top = F.offset(F.query("#cmtBox")).top - F.height(window);
+                            if (F.scrollTop(window) > top) {
+                                commentIt();
+                            }
+                        }
+                    });
+                }
+            }, "next", "延迟加载评论-PC");
+        } else {
+            creatTasker('auto', ["FM"], function(F) {
+                var top = F.one("cmtBox").getBoundingClientRect().top + document.body.scrollTop - window.innerHeight;
+                var commentLoad = false;
+
+                var commentIt = function() {
+                    commentLoad = true;
+                    require(['F_comment_new#1.2.31', 'detail'], function(cmt, detail) {
+                        var data = {
+                            'docUrl':detail.docUrl,
+                            'docTitle': detail.docName,
+                            'speUrl': detail.speUrl || '',
+                            'skey': detail.skey,
+                            'hotLimit':2,
+                            'newLimit':2,
+                            'cmtViewUrl':'http://gentie.ifeng.com/view.html',
+                            'cmtViewSpecialUrl':'http://gentie.ifeng.com/view.html'
+                        }
+                        new cmt(glue).create('js_cmtContainer', data);
+                    });
+
+                };
+
+                if (document.body.scrollTop > top) {
+                    commentIt();
+                } else {
+                    F.addEvent(window, "scroll", function() {
+                        if (commentLoad === false) {
+                            top = F.one("cmtBox").getBoundingClientRect().top + document.body.scrollTop - window.innerHeight;
+                            if (document.body.scrollTop > top) {
+                                commentIt();
+                            }
+                        }
+                    });
+                }
+
+            }, "next", "延迟加载评论-Mobile");
+        }
+
+    </script>
+</div>
+</body>
+</html>

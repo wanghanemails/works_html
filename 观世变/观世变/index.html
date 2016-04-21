@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>观世变</title>
+    <script src="http://y0.ifengimg.com/commonpage/1130/F-RequireJS.min.js"></script>
+    <link rel="stylesheet" href="http://y1.ifengimg.com/css/min/basic_new_v2.css">
+    <script>
+        if (device.type === "mobile") {
+            document.write('<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" /><link rel="stylesheet"  href="css/iphone.css"/>');
+        } else if(device.type === 'pad'){
+            document.write('<link rel="stylesheet" href="css/pc.css"/> ');
+        } else {
+            document.write('<link rel="stylesheet"  href="css/pc.css"/>');
+        }
+    </script>
+</head>
+<body>
+
+<script src="http://y1.ifengimg.com/BX/min/BX.1.0.1.U.js" ></script>
+<style>
+    .allHeader{ background:#fff; text-align:left; line-height:14px;}
+    .allHeader a{color:#000;text-decoration:none;}
+    .allHeader a:hover{color:#000;text-decoration:underline;}
+    .clear{ clear:both;}
+    .allHeader .speHeader{ width:988px; height:30px; _height:26px; margin:0 auto; padding:3px 6px; _padding-bottom:0px; background:#fff; font-family:simsun, Arial; font-size:12px;}
+    .allHeader .speLogo{ float:left;height:23px; padding-top:5px;}
+    .allHeader .speLogo img{ display:block; border:0px;}
+    .allHeader .speLink{ float:left; height:18px; font-size:14px; padding-top:12px; color:#416472;}
+    .allHeader .speLink a{ color:#416472; padding:0px 7px;}
+    .allHeader .speNav{ float:left; height:16px; padding:14px 10px 0px 1px; color:#666; line-height:12px;}
+    .allHeader .speNav a{ color:#666;}
+    .allHeader .navFind{float:right; margin-right:7px; _margin-right:3px; width:273px; padding:5px 0 8px; _padding-bottom:6px;}
+    .allHeader .navFind span{float:left;}
+    .allHeader .navFind .headText{width:141px;height:16px; padding:2px 0 0 5px; margin-top:1px !important;*margin-top:0px !important; margin-top:0; margin-right:7px; background:#fff;border:1px solid #819bb4; color:#646464; font-size:12px; line-height:16px;}
+    .allHeader .navFind .headSel{width:46px; height:18px; margin:1px 9px 0 0; padding:0px 0 0 11px;border:1px solid #819bb4; border-right:none; background:#fff url(http://img.ifeng.com/tres/TemplateRes/14415/14415/images/general_head/nav0416_04.gif) no-repeat right center;font-size:12px;color:#646464; cursor:pointer; line-height:18px;}
+    .allHeader .navFind .headButton{width:51px; height:20px; padding:1px 0 0 2px; margin:1px 0 0; border:none; background:url(http://img.ifeng.com/tres/TemplateRes/14415/14415/images/general_head/navFind.gif) no-repeat 0 0;color:#000; font-weight:bold; cursor:pointer;}
+    .allHeader #searchFormOption{position:relative; float:left; z-index:80;}
+    .allHeader #loginFldselectop{position:absolute; border:1px solid #DFDFDF; top:20px; left:0px; width:73px; background:#fff; z-index:99; margin:0px; padding:0px;}
+    .allHeader #loginFldselectop li{line-height:20px; height:20px; list-style:none;}
+    .allHeader #loginFldselectop li a{line-height:20px; height:20px; text-decoration:none; color:#000; padding-left:11px;}
+    .allHeader .stockList{position:absolute;top:45px;left:0;width:300px; border:1px solid #195184; background:#fff; z-index:999;}
+    .allHeader .stockList a,.stockList a:visited{color:#0A5EA6;}
+    .allHeader .stockList .headTab td{border-bottom:1px solid #ECECEC; height:21px!important;*height:20px!important; height:20px; padding-left:12px; text-align:left; color:#333;}
+    .allHeader .stockList .headTab tr.current{background:#194E80;}
+    .allHeader .stockList .headTab tr.current td{color:#fff; background:#194E80;}
+    .allHeader .stockList .headTab tr.current td a{color:#fff;}
+    .allHeader .stockList .headRed{color:#f00;}
+    .allHeader .speHeaLin{ background:#d9d9d9; height:1px; line-height:1px; font-size:1px; clear:both;}
+</style>
+<script src="http://y0.ifengimg.com/20140822/inice.min.js" ></script>
+<div class="header">
+    <div class="allHeader">
+    <div class="speHeader">
+        <div class="speLogo">
+            <a href="http://news.ifeng.com/history/" target="_blank"><img src="http://y1.ifengimg.com/a/2015/0922/zlj/logo_history_s.gif" alt="历史首页" /></a>
+        </div>
+        <div class="speLink">
+            <a href="http://www.ifeng.com" target="_blank">凤凰网首页</a>|<a href="http://news.ifeng.com/history/" target="_blank">历史首页</a>
+        </div>
+        <div class="speNav">
+            [<A href="http://news.ifeng.com/history/yiwenmidang/list_0/0.shtml" target="_blank">轶闻秘档</A>]
+            [<A href="http://news.ifeng.com/history/vp/index.shtml" target="_blank">历史映像室</A>]
+            [<A href="http://news.ifeng.com/history/special/" target="_blank">专题</A>]
+            [<A href="http://news.ifeng.com/history/zhuanjialunshi/index.shtml" target="_blank">专家论史</A>]
+            [<A href="http://news.ifeng.com/history/minjianshuoshi/index.shtml" target="_blank">民间说史</A>]
+        </div>
+        <script src="http://m0.ifengimg.com/keywords.js"></script>
+        <div class="navFind" style="position:relative; z-index:80;">
+            <form id="searchForm" name="searchForm" method="get" action="http://app.finance.ifeng.com/hq/search.php?q=" target="_blank">
+				<span>
+				<input value="" id="q" name="q" class="headText" onClick="clear_text()" autocomplete="off" onBlur="set_text()" onKeyUp="Suggest_v2_nav.typewrite(value)" onKeyDown="Suggest_v2_nav.move(event)" type="text">
+				<input id="bname" name="bname" type="hidden" />
+				<input id="sname" name="sname" type="hidden" />
+				<input value="输入品牌或车系" id="q_car" name="keywords" class="headText" autocomplete="off" onKeyUp="SuggestCar.typewrite(value)" onFocus="if(value=='输入品牌或车系') {value=''}; SuggestCar.display('inline');" onBlur="if (value=='') {value='输入品牌或车系'};" onKeyDown="SuggestCar.move(event)" style="display: none;" disabled="disabled" type="text">
+				</span>
+                <div id="searchFormOption"> <span id="loginUl" onClick="clickLoginSelect();" style="cursor:default;" class="headSel">站内</span>
+                    <ul id="loginFldselectop" style="display: none;" onMouseOut="loginMapOut();" onMouseOver="loginMapOver();">
+                        <li id="ra1" style="cursor: default;"><a onClick="myclick(this,1)" style="width: 100%; display: block; height: 17px;">站内</a></li>
+                        <li id="ra2" style="cursor: default;"><a onClick="myclick(this,1)" style="width: 100%; display: block; height: 17px;">站外</a></li>
+                        <li id="ra3" style="cursor: default;"><a onClick="myclick(this,0)" style="width: 100%; display: block; height: 17px;">证券</a></li>
+                        <li id="ra4" style="cursor: default;"><a onClick="myclick(this,1)" style="width: 100%; display: block; height: 17px;">汽车</a></li>
+                        <li id="ra0" style="cursor: default;"><a onClick="myclick(this,1)" style="width: 100%; display: block; height: 17px;">视频</a></li>
+                    </ul>
+                </div>
+
+				<span>
+				<input id="searchbutton" value="搜索" class="headButton" style="cursor: pointer;" type="submit">
+				</span>
+                <div class="clear"></div>
+                <div class="stockList" style="display: none;" id="suggest_list" onfocus="Suggest_v2_nav.display('inline')" onblur="" onMouseOver="Suggest_v2_nav.display('inline')" onMouseOut="Suggest_v2_nav.display('none')"></div>
+                <div class="clear"></div>
+                <input name="c" id="c" value="1" type="hidden">
+                <input name="select_type" value="" disabled="disabled" type="hidden">
+                <input name="select_code" value="" disabled="disabled" type="hidden">
+            </form>
+        </div>
+        <script>
+            var userCurrentKeyword="";
+            var search_action_array = ['http://so.v.ifeng.com/video?q=&c=5', 'http://search.ifeng.com/sofeng/search.action?q=&c=1', 'http://sou.ifeng.com/bsearch/bsearch.do?q=', 'http://app.finance.ifeng.com/hq/search.php?q=', 'http://data.auto.ifeng.com/search/search.do'];
+            var search_array = ['ra0', 'ra1', 'ra2', 'ra3', 'ra4'];
+            var search_index = 1;
+            function switch_search(index) {
+                $('c').value = index == 0 ? 5 : 1;
+                $('searchForm').action = search_action_array[index];
+            }
+            function init_search() {
+                switch_search(search_index);
+                V.addListener(search_array, 'click', function(e, obj) {
+                    //$("suggest_list").style.display='none';
+                    var tmp = 0;
+                    for (var i = 0; i != search_array.length; i++) {
+                        if (obj.id == search_array[i]) {
+                            if (obj.id == 'ra4') {//汽车suggest
+                                $("q").style.display = 'none';
+                                $("q").disabled = true;
+                                $("q_car").style.display = 'block';
+                                $("q_car").disabled = false;
+                                $("suggest_list").innerHTML = '';
+                            } else {//其他
+                                $("q").style.display = 'block';
+                                $("q").disabled = false;
+                                $("q_car").style.display = 'none';
+                                $("q_car").disabled = true;
+                                $("suggest_list").innerHTML = '';
+                            }
+                            tmp = i;
+                            break;
+                        }
+                    }
+                    search_index = tmp;
+                    switch_search(tmp);
+                })
+                V.addListener('searchbutton', 'click', function(e, obj) {
+                    //$('searchForm').submit();
+                })
+                //$('searchForm').q.focus();
+                $('searchForm').q.value = PH_HOTWORDS[1];
+            }
+            function clickLoginSelect() {
+                $("suggest_list").style.display = 'none'; //关闭当前显示的suggest_list
+                if ($("loginFldselectop").style.display == "block") {
+                    $("loginFldselectop").style.display = "none";
+                } else {
+                    $("loginFldselectop").style.display = "block";
+                    selectlist();
+                }
+            }
+            function myclick(obj,hotword) {
+                $('searchForm').q.value = userCurrentKeyword==""?PH_HOTWORDS[hotword]:userCurrentKeyword;
+                $('searchForm').q_car.value = userCurrentKeyword==""?"输入品牌或车系":userCurrentKeyword;
+                $("loginUl").innerHTML = obj.innerHTML;
+                $("loginFldselectop").style.display = "none";
+            }
+            function selectlist() {
+                var liObj = $("loginFldselectop").getElementsByTagName("li");
+                for (var j = 0; j < liObj.length; j++) {
+                    liObj[j].onmouseover = function() {
+                        this.style.background = "#e7e7e7";
+                        this.getElementsByTagName("a")[0].style.color = "black";
+                    }
+                    liObj[j].onmouseout = function() {
+                        this.style.background = "white";
+                        this.getElementsByTagName("a")[0].style.color = "black";
+                    }
+                    liObj[j].onclick = function() {
+
+                        $("loginFldselectop").style.display == "none";
+                    }
+                }
+            }
+            var loginMapTimeoutId;
+            function loginMapOver() {
+                if (loginMapTimeoutId) clearTimeout(loginMapTimeoutId);
+            }
+            function loginHide() {
+                $("loginFldselectop").style.display = "none";
+            }
+            function loginMapOut() {
+                if (loginMapTimeoutId) clearTimeout(loginMapTimeoutId);
+                loginMapTimeoutId = setTimeout("loginHide()", 500);
+            }
+            /*
+             function clear_text() {
+             (document.getElementById("q").value == PH_HOTWORDS[1]) ? (document.getElementById("q").value = "") : "";
+             }*/
+            function clear_text() {
+                document.getElementById("q").value = ((document.getElementById("q").value == PH_HOTWORDS[0] ) || (document.getElementById("q").value ==PH_HOTWORDS[1])) ? "" : document.getElementById("q").value;
+            }
+
+            function set_text() {
+                var loginUlVal = $("loginUl").innerHTML;
+                var inputVal = loginUlVal == "证券" ? PH_HOTWORDS[0] : PH_HOTWORDS[1];
+                var nowData = document.getElementById("q").value;
+                document.getElementById("q").value = (nowData == inputVal) || (nowData == "") ? inputVal : nowData;
+            }
+            var Suggest_v2_nav = {
+                line: 0,
+                count: 0,
+                keyword: "",
+                move: function(_evt) {
+                    switch (_evt.keyCode) {
+                        case 38: // up
+                            if (this.line > 1) {
+                                document.getElementById("suggest_" + this.line).className = "";
+                                this.line = this.line - 1;
+                                document.getElementById("suggest_" + this.line).className = "current";
+                            }
+                            break;
+                        case 40: // down
+                            if (this.line > 0 && this.line < this.count) {
+                                document.getElementById("suggest_" + this.line).className = "";
+                            }
+                            if (this.line < this.count) {
+                                this.line = this.line + 1;
+                                document.getElementById("suggest_" + this.line).className = "current";
+                            }
+                            break;
+                        case 13: // enter
+                            if (this.line >= 1 && this.line <= this.count) {
+                                document.searchForm.select_type.disabled = false;
+                                document.searchForm.select_code.disabled = false;
+                                document.searchForm.select_type.value = suggest_json[this.line - 1]["t"];
+                                document.searchForm.select_code.value = suggest_json[this.line - 1]["c"];
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                display: function(_display) {
+                    if (_display == "inline") {
+                        var table_html = document.getElementById("suggest_list").innerHTML;
+                        if (table_html != "") {
+                            document.getElementById("suggest_list").style.display = _display;
+                        }
+                    } else if (_display == "none") {
+                        document.getElementById("suggest_list").style.display = _display;
+                    }
+                },
+                mark_keyword: function(_str, _keyword) {
+                    return _str.replace(_keyword, "<font class='red bold'>" + _keyword + "</font>");
+                },
+                work: function() {
+                    if (search_index != 3) {
+                        return;
+                    }
+                    var _type_conf = {
+                        "stock": "股票",
+                        "fund": "基金",
+                        "hkstock": "港股",
+                        "forex": "外汇",
+                        "bond": "债券"
+                    };
+                    var table_html = "";
+                    this.line = 0;
+                    this.count = 0;
+                    document.searchForm.select_type.disabled = true;
+                    document.searchForm.select_code.disabled = true;
+                    document.searchForm.select_type.value = "";
+                    document.searchForm.select_code.value = "";
+                    for (var i = 0; i < suggest_json.length; i++) {
+                        this.count++;
+                        var code = suggest_json[i]["c"];
+                        var symbol = suggest_json[i]["s"];
+                        var name = suggest_json[i]["n"];
+                        var pinyin = suggest_json[i]["p"];
+                        var type = suggest_json[i]["t"];
+                        var _type = _type_conf[type];
+                        var bgcolor = "";
+                        if (i % 2 == 1) {
+                            bgcolor = "bgcolor='#F5F5F5'";
+                        }
+
+                        if (type == "forex") {
+                            table_html += "  <tr id=\"suggest_" + (parseInt(i) + 1) + "\" onmouseover=\"javascript:this.className='current';this.style.cursor='pointer'\" onmouseout=\"javascript:this.className=''\" onclick=\"javascript:window.open('http://finance.ifeng.com/app/hq/" + type + "/" + symbol + "/')\" >";
+                        }
+                        else {
+                            table_html += "  <tr id=\"suggest_" + (parseInt(i) + 1) + "\" onmouseover=\"javascript:this.className='current';this.style.cursor='pointer'\" onmouseout=\"javascript:this.className=''\" onclick=\"javascript:window.open('http://finance.ifeng.com/app/hq/" + type + "/" + code + "/')\" >";
+                        }
+                        table_html += "    <td " + bgcolor + ">" + Suggest_v2_nav.mark_keyword(symbol.toUpperCase(), this.keyword.toUpperCase()) + "</td>";
+                        table_html += "    <td " + bgcolor + ">" + Suggest_v2_nav.mark_keyword(name, this.keyword) + "</td>";
+                        table_html += "    <td " + bgcolor + ">" + Suggest_v2_nav.mark_keyword(pinyin.toUpperCase(), this.keyword.toUpperCase()) + "</td>";
+                        table_html += "    <td " + bgcolor + ">" + _type + "</td>";
+                        table_html += "  </tr>";
+                    }
+                    if (table_html != "") {
+                        table_html = "<table width='100%' border='0' cellspacing='0' cellpadding='0' class='tab'>" + table_html + "</table>";
+                    }
+                    document.getElementById("suggest_list").innerHTML = table_html;
+                    if (table_html != "") {
+                        Suggest_v2_nav.display("inline");
+                    } else {
+                        Suggest_v2_nav.display("none");
+                    }
+                },
+                typewrite: function(_keyword) {
+                    var search_name = document.getElementById("loginUl").innerHTML;
+                    userCurrentKeyword = _keyword;
+                    if (_keyword != this.keyword && search_name == '证券') {
+                        this.keyword = _keyword;
+                        var oHead = document.getElementsByTagName('HEAD').item(0);
+                        var oScript = document.createElement("script");
+                        oScript.type = "text/javascript";
+                        oScript.src = "http://app.finance.ifeng.com/hq/suggest_v2.php?t=all&q=" + _keyword + "&cb=Suggest_v2_nav.work();";
+                        oHead.appendChild(oScript);
+                    }
+                }
+            }
+
+            //function $() {return document.getElementById(arguments[0]);}
+            function $T() { return document.getElementsByTagName(arguments[0]); }
+            function $C() { return document.createElement(arguments[0]); }
+            String.prototype.trim = function() {//用正则表达式将前后空格用空字符串替代
+                return this.replace(/(^\s*)|(\s*$)/g, "");
+            }
+
+            var SuggestCar =
+            {
+                line: 0,
+                count: 0,
+                request_url: 'http://car.auto.ifeng.com/lib/car/suggest_jsonp.php',
+                keyword: '',
+                form_name: 'searchForm',
+                show_list_id: 'suggest_list',
+                move: function(_evt) {
+                    switch (_evt.keyCode) {
+                        case 38: //up
+                            if (this.line > 1) {
+                                $('suggest_' + this.line).className = '';
+                                this.line = this.line - 1;
+                                $('suggest_' + this.line).className = 'current';
+                            }
+                            break;
+                        case 40: //down
+                            if (this.line > 0 && this.line < this.count) {
+                                $('suggest_' + this.line).className = '';
+                            }
+                            if (this.line < this.count) {
+                                this.line = this.line + 1;
+                                $('suggest_' + this.line).className = 'current';
+                            }
+                            break;
+                        case 13: //enter
+                            if (this.line >= 1 && this.line <= this.count) {
+                                eval('document.' + this.form_name + '.bname.value = "' + suggest_json[this.line - 1][0] + '";');
+                                eval('document.' + this.form_name + '.sname.value = "' + suggest_json[this.line - 1][1] + '";');
+                                eval('document.' + this.form_name + '.keyword.value="";');
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                display: function(_display) {
+                    if (_display == 'inline') {
+                        var table_html = $(this.show_list_id).innerHTML;
+                        if (table_html != '') {
+                            $(this.show_list_id).style.display = _display;
+                        }
+                    }
+                    else if (_display == 'none') {
+                        $(this.show_list_id).style.display = _display;
+                    }
+                },
+                mark_keyword: function(_str, _keyword) {
+                    return _str.replace('<font color=red>' + _keyword.trim() + '</font>', '<font class="headRed bold">' + _keyword.trim() + '</font>');//100320
+                },
+                work: function() {
+                    var table_html = '';
+                    this.line = 0;
+                    this.count = 0;
+
+                    for (var i = 0; i < suggest_json.length; i++) {
+                        this.count++;
+                        var brand_name = suggest_json[i][0]; //品牌
+                        var serial_name = suggest_json[i][1]; //车系
+                        var search_content = suggest_json[i][2]; //匹配的完整内容(品牌+车系)
+
+                        var bgcolor = '';
+                        if (i % 2 == 1) {
+                            bgcolor = 'bgcolor="#F5F5F5"';
+                        }
+                        table_html += '<tr id="suggest_' + (parseInt(i) + 1) + '" onmouseover="javascript:this.className=\'current\'; this.style.cursor=\'pointer\'" onmouseout="javascript:this.className=\'\'" onclick="javascript:window.open(\'http://data.auto.ifeng.com/search/search.do?keywords=' + escape(brand_name) + '&sname=' + escape(serial_name) + '\')">';
+                        table_html += '<td ' + bgcolor + '>' + SuggestCar.mark_keyword(search_content, this.keyword) + '</td>';
+                        table_html += '</tr>';
+
+                        //将第一个模糊匹配值存数bname和sname
+                        if (i == 0) {
+                            $("bname").value = brand_name;
+                            $("sname").value = serial_name;
+                        }
+                    }
+                    if (table_html != '') {
+                        table_html = '<table width="100%" border="0" cellspacing="0" cellpadding="0" class="headTab">' + table_html + '</table>';//100320
+                    }
+
+                    $(this.show_list_id).innerHTML = table_html;
+
+                    if (table_html != '') {
+                        SuggestCar.display('inline');
+                    }
+                    else {
+                        SuggestCar.display('none');
+                        $(this.show_list_id).style.display = 'none';
+                    }
+                },
+                typewrite: function(_keyword) {
+                    userCurrentKeyword = _keyword;
+                    if (_keyword != this.keyword) {
+                        this.keyword = _keyword;
+                        var oHead = $T('HEAD').item(0);
+                        var oScript = $C('script');
+                        oScript.type = 'text/javascript';
+                        //oScript.src='http://car.auto.ifeng.com/lib/car/suggest_jsonp.php?keyword='+_keyword.trim()+'&callback=SuggestCar.work();';
+                        oScript.src = this.request_url + '?keyword=' + _keyword.trim() + '&callback=SuggestCar.work();';
+                        oHead.appendChild(oScript);
+                    }
+                }
+            }
+
+        </script>
+        <script>init_search();</script>
+    </div>
+    <div class="speHeaLin"></div>
+</div>
+</div>
+<!--专题页头代码结束-->
+
+        <div class="lookWorld-container">
+              <div class="section-1">
+
+                <div class="lookWorld-pc">
+                    <div class="number"><span>No.</span>120</div>
+                    <div class="time"><span>|2016.3.17</span></div>
+                </div>
+
+                <div class="lookWorld-head-iphone">
+                    <span><img src="images/lookWorld.jpg"></span>
+                    <span>NO·</span>
+                    <span class="lookWorld-number">120</span>
+                </div>
+
+                <div class="title">
+                    <h2 >廖耀湘家人：</h2>
+                    <h1 >廖耀湘的抗日功绩不应被抹杀</h1>
+                </div>
+
+                        <h1 class="iphone-title">李济沧：贵族政治、豪族共同体与京都学派</h1>
+
+                  <div class="time-iphone"><span>2016.3.17</span><span>编辑:</span><span>周恩</span></div>
+
+            </div>
+            <div class="section-2 clearfix">
+                    <div class="lookWorld-article">
+                        <p class="p-lead">我觉得大陆对事情的看法更加客观，他们认为对是对，错是错，不能因为他后来的事情而抹杀他以前抗日的贡献。我觉得大陆对事情的看法更加客观，他们认为对是对，错是错，不能因为他后来的事情而抹杀他以前抗日的贡献。</p>
+                        <p><span>本文系凤凰网历史频道对话廖耀湘儿媳欧阳蘅，曾孙女廖志宇文字实录，采访整理：周昂。</span></p>
+                        <p><span>凤凰网历史：</span>您觉得廖耀湘的那些评价不是特别属实？</p>
+                        <p><span>廖志宇：</span>我觉得首先从家人方面，百度百科上对我太奶奶的介绍完全是错的，人都错了，上面写道我太爷爷的老婆叫什么“黄淑兰”，其实跟我们家一点关系都没有，完全就是另一个人</p>
+                        <p>抗战时因为战争的原因其实他们很少见面，抗战胜利以后，蒋介石因为太爷爷的功勋所以把他家人安排在上海的德国领事馆</p>
+                        <p><span>凤凰网历史：</span>您觉得廖耀湘的那些评价不是特别属实？</p>
+                        <p><span>廖志宇：</span>我觉得首先从家人方面，百度百科上对我太奶奶的介绍完全是错的，人都错了，上面写道我太爷爷的老婆叫什么“黄淑兰”，其实跟我们家一点关系都没有，完全就是另一个人</p>
+                        <p>抗战时因为战争的原因其实他们很少见面，抗战胜利以后，蒋介石因为太爷爷的功勋所以把他家人安排在上海的德国领事馆</p>
+                        <p class="article-img-pc">
+                            <img src="images/lookWorld-img1.jpg"  alt="图片说明"/>
+                        </p>
+                        <p><span>凤凰网历史：</span>您觉得廖耀湘的那些评价不是特别属实？</p>
+                        <p><span>廖志宇：</span>我觉得首先从家人方面，百度百科上对我太奶奶的介绍完全是错的，人都错了，上面写道我太爷爷的老婆叫什么“黄淑兰”，其实跟我们家一点关系都没有，完全就是另一个人</p>
+                        <p>抗战时因为战争的原因其实他们很少见面，抗战胜利以后，蒋介石因为太爷爷的功勋所以把他家人安排在上海的德国领事馆</p>
+                        <p><span>凤凰网历史：</span>您觉得廖耀湘的那些评价不是特别属实？</p>
+                        <p><span>廖志宇：</span>我觉得首先从家人方面，百度百科上对我太奶奶的介绍完全是错的，人都错了，上面写道我太爷爷的老婆叫什么“黄淑兰”，其实跟我们家一点关系都没有，完全就是另一个人</p>
+                        <p>抗战时因为战争的原因其实他们很少见面，抗战胜利以后，蒋介石因为太爷爷的功勋所以把他家人安排在上海的德国领事馆</p>
+                        <p><span>凤凰网历史：</span>您觉得廖耀湘的那些评价不是特别属实？</p>
+                        <p><span>廖志宇：</span>我觉得首先从家人方面，百度百科上对我太奶奶的介绍完全是错的，人都错了，上面写道我太爷爷的老婆叫什么“黄淑兰”，其实跟我们家一点关系都没有，完全就是另一个人</p>
+                        <p>抗战时因为战争的原因其实他们很少见面，抗战胜利以后，蒋介石因为太爷爷的功勋所以把他家人安排在上海的德国领事馆</p>
+                        <p>责任编辑：周昂</p>
+                    </div>
+
+                    <div class="lookWorld-aside">
+                        <div class="wangqi"><span class="aside-title-red"></span><span class="aside-title-review">往期回顾</span><span class="aside-title-more"><a href="#" target="_blank" > 更多》</a></span><span class="clearfix myclear"></span></div>
+                        <div class="review">
+                            <div class="divBlock">
+                                <div class="divBlock-span">
+                                    <img src="images/people-article.jpg" alt="图片说明" />
+                                    <span class="aside-num">119</span>
+                                </div>
+                                <div class="linkTitle">
+                                    <div class="name">何建明</div>
+                                    <div class="profile"><a href="#"  target="_blank" > 纪念南京大屠杀应强调公民意识</a></div>
+                                </div>
+                            </div>
+                            <div class="divBlock">
+                                <div class="divBlock-span">
+                                    <img src="images/people-article.jpg" alt="图片说明" />
+                                    <span class="aside-num">118</span>
+                                </div>
+                                <div class="linkTitle">
+                                    <div class="name">何建明</div>
+                                    <div class="profile"><a href="#"  target="_blank" > 纪念南京大屠杀应强调公民意识</a></div>
+                                </div>
+                            </div>
+                            <div class="divBlock">
+                                <div class="divBlock-span">
+                                    <img src="images/people-article.jpg" alt="图片说明" />>
+                                    <span class="aside-num">117</span>
+                                </div>
+                                <div class="linkTitle">
+                                    <div class="name">何建明</div>
+                                    <div class="profile"><a href="#"  target="_blank" > 纪念南京大屠杀应强调公民意识</a></div>
+                                </div>
+                            </div>
+                            <div class="divBlock">
+                                <div class="divBlock-span">
+                                    <img src="images/people-article.jpg" alt="图片说明" />
+                                    <span class="aside-num">116</span>
+                                </div>
+                                <div class="linkTitle">
+                                    <div class="name">何建明</div>
+                                    <div class="profile"><a href="#"  target="_blank" > 纪念南京大屠杀应强调公民意识</a></div>
+                                </div>
+                            </div>
+                            <div class="divBlock">
+                                <div class="divBlock-span">
+                                    <img src="images/people-article.jpg" alt="图片说明" />
+                                    <span class="aside-num">115</span>
+                                </div>
+                                <div class="linkTitle">
+                                    <div class="name">何建明</div>
+                                    <div class="profile"><a href="#"  target="_blank" > 纪念南京大屠杀应强调公民意识</a></div>
+                                </div>
+                            </div>
+                            <div class="divBlock">
+                                <div class="divBlock-span">
+                                    <img src="images/people-article.jpg" alt="图片说明" />
+                                    <span class="aside-num">114</span>
+                                </div>
+                                <div class="linkTitle">
+                                    <div class="name">何建明</div>
+                                    <div class="profile"><a href="#"  target="_blank" > 纪念南京大屠杀应强调公民意识</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="weixin-share">
+                            <img src="images/qr-code.jpg" />
+                            <div class="weixin">
+                                <div class="weixin-share-title">凤凰历史 官方微信</div>
+                                <div>微信扫描二维码</div>
+                                <div>每天看精彩历史</div>
+                                <div class="myclear"></div>
+                            </div>
+
+                        </div>
+                   </div>
+
+            </div>
+            <!-- Comment BEGIN -->
+            <div class="section-3">
+                <div>
+                    <script>
+                        var cmtConfig = {
+                            'docTitle' : '测试专题',
+                            'docUrl' : 'http://news.ifeng.com/special/subject/',
+
+                            'isSpecial' : true,
+
+                            'skey' : '07c2f1',
+                            'hotLimit' : 2,
+                            'newLimit' : 2
+                        };
+
+                    </script>
+                    <script src="http://y0.ifengimg.com/fe/detail/scripts/base-core_5664eba4.min.js"></script>
+                    <div id="js_cmtContainer"></div>
+                    <script>
+
+
+
+                        if(glue.device.type =="pc"){
+                            document.write('<link rel="stylesheet" href="http://y0.ifengimg.com/fe/detail/styles/detail_depmodules_pc_131cd8c1.min.css">');
+                        }
+
+                        if(glue.device.type =="mobile"){
+                            document.write('<link rel="stylesheet" href="http://y0.ifengimg.com/fe/detail/styles/detail_depmodules_mobile_23cd421b.min.css">');
+                        }
+
+                        if(glue.device.type =="pad"){
+                            document.write('<link rel="stylesheet" href="http://y0.ifengimg.com/fe/detail/styles/detail_depmodules_pad_181b1941.min.css">');
+                        }
+
+
+                        requirejs.config({
+                            paths:{
+                                "public_login": "http://y1.ifengimg.com/commonpage/2015/0831/public_login.min",
+                                "jquery#1.8.1" : "http://y1.ifengimg.com/fe/jQuery/jquery-1.8.1.min",
+                                "artTemplate#3.0.3" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_07b1b7a3.min",
+                                "F#1.2.0" : "http://y0.ifengimg.com/base/origin/F-amd-1.2.0.min"
+                            },
+                            waitSeconds: 20,shim: {}});
+
+
+
+                        if(glue.device.type =="pad"){
+                            requirejs.config({
+                                paths:{
+                                    "F_comment_new#1.2.3" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_pad_61e0df25.min"
+                                },
+                                waitSeconds: 20,shim: {}});
+                        } else if(glue.device.type =="mobile"){
+                            requirejs.config({
+                                paths:{
+                                    "F_comment_new#1.2.3" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_mobile_abfafb97.min"
+                                },
+                                waitSeconds: 20,shim: {}});
+                        } else if(glue.device.type =="pc"){
+                            requirejs.config({
+                                paths:{
+                                    "F_comment_new#1.2.3" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_pc_9cec1d30.min"
+                                },
+                                waitSeconds: 20,shim: {}});
+                        }
+
+                        require(['jquery#1.8.1'], function() {
+                            jQuery.noConflict();
+                        });
+
+                        require(['F_comment_new#1.2.3'], function(cmt) {
+
+                            var cmtData = cmtConfig;
+                            if(cmtData.isSpecial){
+                                cmtData.specUrl = cmtData.docUrl;
+
+                            }
+                            new cmt(glue).create('js_cmtContainer', cmtData);
+
+                        });
+                    </script>
+                </div>
+            </div>
+            <!--comment end-->
+        </div>
+
+        <div class="lookWorld-footer">
+            <div class="footer mt02">
+                <div class="footlink clearfix ">
+                    <div class="fk_l"><a href="http://www.ifeng.com/corp/about/intro/" target="_blank">凤凰新媒体介绍</a><span>|</span><a href="http://ir.ifeng.com/" target="_blank">投资者关系 Investor Relations</a><span>|</span><a href="http://biz.ifeng.com/" target="_blank">广告服务</a><span>|</span><a href="http://career.ifeng.com/" target="_blank">诚征英才</a><span>|</span><a href="http://www.ifeng.com/corp/privacy/" target="_blank">保护隐私权</a><span>|</span><a href="http://www.ifeng.com/corp/exemption/" target="_blank">免责条款</a><span>|</span><a href="http://help.ifeng.com/" target="_blank">意见反馈</a><span>|</span><a href="http://phtv.ifeng.com/intro/" target="_blank">凤凰卫视介绍</a></div>
+                    <div class="fk_r">
+                        <ul class="clearfix">
+                            <li class="l_bg001"><a a="" href="http://v.ifeng.com/" target="_blank" title="视频">视频</a></li>
+                            <li>·<a href="http://v.ifeng.com/documentary/index.shtml" target="_blank" title="纪实">纪实</a></li>
+                            <li>·<a href="http://v.ifeng.com/live/" target="_blank" title="直播">直播</a></li>
+                            <li class="l_bg002"><a href="http://phtv.ifeng.com/" target="_blank" title="凤凰卫视">凤凰卫视</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright"><span>凤凰新媒体&nbsp;版权所有</span>&nbsp;&nbsp;&nbsp;&nbsp;Copyright © 2013 Phoenix New Media Limited All Rights Reserved.</div>
+            </div>
+        </div>
+
+</body>
+</html>

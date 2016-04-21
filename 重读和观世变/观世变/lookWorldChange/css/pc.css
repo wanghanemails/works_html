@@ -1,0 +1,239 @@
+
+.lookWorld-container{
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+}
+.section-1{
+    height: 180px;
+    margin-bottom: 30px;
+    width: 1000px;
+    overflow: hidden;
+    border-bottom: 1px solid #b5b5b5;
+}
+.lookWorld-container .section-1 .lookWorld-pc{
+    background: url("../images/lookDiff-pc-1.jpg") no-repeat;
+    width: 332px;
+    height: 190px;
+    position: relative;
+}
+.lookWorld-pc .number{
+    width: 76px;
+    height: 30px;
+    background-color: #e5e5e5;
+    color: #2b2b2b;
+    position: absolute;
+    right: 0px;
+    top: 74px;
+    font-size: 24px;
+    font-family: Arial;
+    text-align: center;
+    border: 1px solid #aaaaaa;
+}
+.lookWorld-pc .number span{
+    font-size: 14px;
+    top: -3px;
+    position: relative;
+    left: 1px;
+}
+.lookWorld-pc .time{
+    width: 222px;
+    height: 30px;
+    background: url("../images/NotlieHistory.jpg") no-repeat;
+    background-color:#db173b;
+    color: white;
+    position: absolute;
+    top: 107px;
+    right: 0px;
+    font-size: 16px;
+}
+.lookWorld-pc .time span{
+    position: absolute;
+    top: 7px;
+    right: 8px;
+}
+.lookWorld-head-iphone{
+    display: none;
+}
+.iphone-title{
+    display: none;
+}
+.lookWorld-container .title{
+    z-index: -1;
+    position: absolute;
+    left: 330px;
+    top: 25px;
+    display: inline-block;
+    width: 442px;
+    height: 115px;
+    padding:15px 20px 0 35px;
+    font-family: "Microsoft YaHei";
+    color: white;
+}
+.lookWorld-container .title h1,.lookWorld-container .title h2{
+    background-color: #535353;
+    padding:0 0 0 14px;
+    margin-bottom: 2px;
+    font-size: 34px;
+    font-weight: normal;
+}
+.article-img-pc img{
+    width: 650px;
+    height: 370px;
+}
+.lookWorld-container .title h2{
+    width: 206px;
+    height: 48px;
+}
+.lookWorld-container .title h1{
+    width: 450px;
+    height: 48px;
+}
+.lookWorld-container .time-iphone{
+    display: none;
+}
+.section-2{
+    width:1000px;
+    margin:0 auto;
+    padding-bottom: 40px;
+}
+.lookWorld-article{
+    font-size: 14px;
+    width: 650px;
+    float: left;
+}
+
+.lookWorld-article p{
+    margin-top: 20px ;
+    line-height: 34px;
+}
+.lookWorld-article .p-lead{
+    font-size: 14px;
+    font-family: simsun;
+    line-height: 24px;
+    color: #666666;
+    margin-top: 0px;
+
+}
+.lookWorld-article p span{
+    font-weight: bold;
+}
+.lookWorld-aside{
+    width: 300px;
+    float: right;
+}
+.lookWorld-aside a{ text-decoration:none;}
+.lookWorld-aside a:link{color: #2b2b2b}
+.lookWorld-aside a:hover{color: #2b2b2b;text-decoration:underline;}
+.lookWorld-aside a:active{color: #2b2b2b}
+.lookWorld-aside a:visited{color: #2b2b2b}
+
+.lookWorld-aside .wangqi{
+    height: 24px;
+    margin-bottom: 24px;
+}
+.lookWorld-aside .aside-title-red{
+    width: 4px;
+    height: 20px;
+    background-color:#db173b ;
+    display: inline-block;
+    *zoom:1;*display:inline;
+    margin-right: 10px;
+}
+.lookWorld-aside .aside-title-review{
+    font-family: "Microsoft YaHei";
+    font-size: 20px;
+    font-weight: bold;
+}
+.lookWorld-aside .aside-title-more{
+    position: relative;
+    font-size: 12px;
+    float: right;
+    bottom: -10px;
+}
+.lookWorld-aside .divBlock{
+    font-size: 14px;
+    height: 98px;
+    margin-bottom: 36px;
+    font-family: "Microsoft YaHei";
+}
+.lookWorld-aside .divBlock-span{
+    float: left;
+    width: 84px;
+    height: 96px;
+}
+.divBlock-span img{
+    width: 84px;
+    height: 95px;
+}
+.lookWorld-aside .aside-No{
+    font-family: Arial;
+    font-size: 12px;
+    color: #b8b8b8;
+}
+.lookWorld-aside .aside-num{
+    display: inline-block;
+    font-family: Arial;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 26px;
+    height: 16px;
+    background-color: #2b2b2b;
+    text-align: center;
+    position: relative;
+    right: -62px;
+    top: -98px;
+}
+.lookWorld-aside div .linkTitle{
+    font-family: "Microsoft YaHei";
+    float: right;
+    width: 194px;
+    height: 78px;
+   }
+.linkTitle .name{
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+}
+.linkTitle .profile{
+    padding-right: 36px;
+}
+.lookWorld-aside .weixin-share{
+    height: 115px;
+}
+.weixin-share img{
+    float: left;
+    width: 115px;
+    height: 115px;
+}
+.lookWorld-aside .weixin{
+    width: 136px;
+    height: 80px;
+    margin: 18px;
+    padding: 0px;
+    float: left;
+    display: inline-block;
+    font-size: 14px;
+    color: #666666;
+}
+.weixin .weixin-share-title{
+    font-size: 16px;
+    color: black;
+    margin-bottom: 20px;
+}
+.weixin .weixin-share-title+div{
+    margin-bottom: 10px;
+}
+.footer{ width:1000px; margin:0 auto;}
+.footer .footlink{color:#000; height:28px; line-height:28px; padding-top:15px; border-top:1px solid #fff; overflow:hidden;}
+.footer .footlink a{ color:#000;}
+.footer .footlink span{padding:0 5px;}
+.footer .fk_l{ float:left;}
+.footer .fk_r{ width:200px; float:right;}
+.footer .fk_r ul{ overflow:hidden;}
+.footer .fk_r ul li{ height:28px; line-height:28px; overflow:hidden; float:left;}
+.footer .fk_r ul .l_bg001{ background:url(http://y1.ifengimg.com/38716b164e0f5e63/2013/0716/nav0416_14.gif) no-repeat left 9px; padding-left:19px;}
+.footer .fk_r ul .l_bg002{ background:url(http://y3.ifengimg.com/9db17ab793eef980/2013/0403/nav0416_17.gif) no-repeat left 9px; padding-left:17px; margin-left:18px;}
+.footer .copyright{ font-family:Arial; color:#666; height:28px; line-height:28px; text-align:center; overflow:hidden;}
+.footer .copyright span{ font-family:"Microsoft Sun";}

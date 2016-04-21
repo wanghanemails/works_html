@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<div>
+    <script>
+    var cmtConfig = {
+          'docTitle' : '测试专题', 
+          'docUrl' : 'http://news.ifeng.com/special/subject/', 
+
+          'isSpecial' : true, 
+
+          'skey' : '07c2f1',
+          'hotLimit' : 2,
+          'newLimit' : 2
+        };
+
+   </script>
+    <script src="http://y0.ifengimg.com/fe/detail/scripts/base-core_5664eba4.min.js"></script>
+    <div id="js_cmtContainer"></div> 
+    <script>
+
+         
+
+          if(glue.device.type =="pc"){
+            document.write('<link rel="stylesheet" href="http://y0.ifengimg.com/fe/detail/styles/detail_depmodules_pc_131cd8c1.min.css">');
+          }
+
+          if(glue.device.type =="mobile"){
+            document.write('<link rel="stylesheet" href="http://y0.ifengimg.com/fe/detail/styles/detail_depmodules_mobile_23cd421b.min.css">');
+          }
+
+          if(glue.device.type =="pad"){
+            document.write('<link rel="stylesheet" href="http://y0.ifengimg.com/fe/detail/styles/detail_depmodules_pad_181b1941.min.css">');
+          }
+        
+
+         requirejs.config({
+           paths:{
+            "public_login": "http://y1.ifengimg.com/commonpage/2015/0831/public_login.min",
+            "jquery#1.8.1" : "http://y1.ifengimg.com/fe/jQuery/jquery-1.8.1.min",
+            "artTemplate#3.0.3" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_07b1b7a3.min",
+            "F#1.2.0" : "http://y0.ifengimg.com/base/origin/F-amd-1.2.0.min"
+           },
+         waitSeconds: 20,shim: {}});
+
+       
+
+        if(glue.device.type =="pad"){
+                   requirejs.config({
+                     paths:{
+                      "F_comment_new#1.2.3" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_pad_61e0df25.min"
+                     },
+                     waitSeconds: 20,shim: {}});
+        } else if(glue.device.type =="mobile"){
+                   requirejs.config({
+                     paths:{
+                       "F_comment_new#1.2.3" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_mobile_abfafb97.min"
+                     },
+                     waitSeconds: 20,shim: {}});
+        } else if(glue.device.type =="pc"){
+                   requirejs.config({
+                     paths:{
+                      "F_comment_new#1.2.3" : "http://y0.ifengimg.com/fe/detail/scripts/detail_depmodules_pc_9cec1d30.min"
+                     },
+                     waitSeconds: 20,shim: {}});  
+        }
+        require(['jquery#1.8.1'], function() {
+        jQuery.noConflict();
+    });
+        require(['F_comment_new#1.2.3'], function(cmt) {
+        
+            var cmtData = cmtConfig;
+            if(cmtData.isSpecial){
+              cmtData.specUrl = cmtData.docUrl; 
+
+            }
+            new cmt(glue).create('js_cmtContainer', cmtData); 
+
+        });
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+.header{
+    display: none;
+}
+.allHeader{
+    display: none;
+}
+.lookWorld-container{
+    margin: auto 15px;
+    overflow: hidden;
+}
+.lookWorld-head-iphone{
+    margin-bottom: 8px;
+    margin-top: 18px;
+}
+.lookWorld-head-iphone span img{
+    width: 41px;
+    height: 12px;
+}
+.lookWorld-head-iphone .lookWorld-number{
+    color: #307291;
+}
+.lookWorld-container .title{
+    display: none;
+}
+.lookWorld-pc{
+    display: none;
+}
+.lookWorld-container .iphone-title{
+    font-size: 20px;
+    line-height: 24px;
+    font-family: STHeiti;
+    margin-bottom: 10px;
+}
+.lookWorld-container .lookWorld-aside{
+    display: none;
+}
+.lookWorld-container .people-pc{
+    display: none;
+}
+
+.lookWorld-container .time-iphone{
+    margin-bottom: 17px;
+}
+.lookWorld-container .time-iphone span{
+    margin-right: 12px;
+    color: #999999;
+}
+.lookWorld-article .article-img-pc{
+    display: none;
+}
+.lookWorld-article p{
+    margin-bottom: 28px;
+    font-size: 17px;
+    font-family: "STXihei";
+    line-height: 28px;
+}
+.lookWorld-container .lookWorld-article .article-img-iphone{
+    width: 100%;
+}
+
+.lookWorld-footer{
+    display: none;
+}
