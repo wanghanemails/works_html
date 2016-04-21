@@ -489,7 +489,7 @@
             p.subject="2013cjfhbjwy";
 
 
-           p.RenderPlay(-1); //从第几条开始播放，从0开始
+           p.RenderPlay(0); //从第几条开始播放，从0开始
 
         jQuery(function ($){
             $('#playitem>li').hover(function(){
@@ -528,22 +528,22 @@
             </li>
         </ul>
     </div>
-    <div style="height:40px;"></div>
+    <div style="height:20px;"></div>
     <style>
         body{ _background-attachment:fixed;}
         .sd_list{ width:120px; font-size:12px; font-family:simsun,arial,helvetica,clean,sans-serif; color:#2b2b2b; position:fixed; left:50%; bottom:200px; margin-left:530px; z-index:9;}
         .sd_ie6{ _position:absolute; _top:expression(documentElement.scrollTop+(documentElement.clientHeight-this.offsetHeight)/2); _margin-top:232px;} /* ie6 fixed hack */
         .sd_list ul{list-style:none;}
-        .sd_list li{ position:relative; width:120px; margin-bottom:1px; display:list-item; text-align:-webkit-match-parent;}
-        .sd_list li a{ display:block; width:120px; height:50px; background:url(http://y1.ifengimg.com/a/2015/0216/lh/b_34.jpg) no-repeat;}
-        .sd_list .sd_one .st{ background-position:0px 0px;}
-        .sd_list .sd_one .st:hover{ background-position:0px -153px;}
-        .sd_list .sd_one .st_h{background-position:0px -153px;}
-        .sd_list .sd_two a{ background-position:0px -51px; color:#999999; text-align:center; height:20px; padding-top:30px;}
-        .sd_list .sd_two a:hover{ background-position:0px -204px; color:#FFF;}
+        .sd_list li{ position:relative; width:50px; margin-bottom:1px; display:list-item; text-align:-webkit-match-parent;}
+        .sd_list li a{ display:block; width:50px; height:50px; background:url(http://y3.ifengimg.com/314bd925cdd17196/2014/0827/share_list.png) no-repeat;}
+        .sd_list .sd_one .st{ background-position:0px -1px}
+        .sd_list .sd_one .st:hover{ background-position:0px -154px;}
+        .sd_list .sd_one .st_h{background-position:0px -154px;}
+        .sd_list .sd_two a{ background-position:0px -52px; color:#fff; text-align:center; height:20px; padding-top:30px;}
+        .sd_list .sd_two a:hover{ background-position:0px -205px; color:#FFF;}
         .sd_list .sd_three{ margin-bottom:0px;}
-        .sd_list .sd_three a{ background-position:0px -102px;}
-        .sd_list .sd_three a:hover{ background-position:0px -255px;}
+        .sd_list .sd_three a{ background-position:0px -103px;}
+        .sd_list .sd_three a:hover{ background-position:0px -256px;}
         .sd_list .sd_tc{ position:absolute; left:-155px; top:0px; width:155px; height:50px; display:none;}
         .sd_list .sd_tc a{ background:url(http://y1.ifengimg.com/314bd925cdd17196/2014/0814/share_left.png) no-repeat; float:left; width:50px;}
         .sd_list .sd_tc .qz{ background-position:0px 0px;}
@@ -561,7 +561,6 @@
     <script>
         (function($){
             //分享hover时的事件
-
             $(".sd_one").hover(function () {
                 $(this).find(".sd_tc").stop(true, true).show(0);
                 $(this).find(".st").addClass("st_h");
@@ -684,7 +683,7 @@
         </div>
         <div class="aside clearfix">
             <div class="guestIntroduce">嘉宾介绍</div>
-            <ul>
+            <ul class="headList">
                 <li>
                     <div class="guestHeadImg"><a href="#"><img src="images/headImgTest.jpg" alt="图片说明" /></a></div>
                     <div class="guestName">嘉宾名</div>
@@ -1018,6 +1017,7 @@
     <div class="clear"></div>
     <!--通用页尾开始-->
     <style>
+
         .footer1{ width:100%; background:#fafafa}
         .footer { width: 1000px; margin: 0 auto; }
         .footer .footlink { color: #a4abaf; height: 28px; line-height: 28px; padding-top: 15px;overflow: hidden; }
@@ -1031,6 +1031,7 @@
         .footer .fk_r ul .l_bg002 { background: url(http://y3.ifengimg.com/9db17ab793eef980/2013/0403/nav0416_17.gif) no-repeat left 9px; padding-left: 17px; margin-left: 18px; }
         .footer .copyright { font-family: Arial; color: #a4abaf; height: 28px; line-height: 28px; text-align: center; overflow: hidden; }
         .footer .copyright span { font-family: "宋体"; }
+
     </style>
     <div class="ft">
         <div class="footer mt02" id="footer">

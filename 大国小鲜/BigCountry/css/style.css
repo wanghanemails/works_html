@@ -3,21 +3,22 @@
 .logo-bigCountry .number{font-size: 20px;font-family: "Microsoft YaHei";color: #c1272d}
 .logo-bigCountry h1{font-size: 28px;font-family: "Microsoft YaHei";font-weight: bold;color: #333333}
 
-.top-container{  width: 100%;  height: 784px;  margin: 0 auto;  background: url("../images/background.jpg") no-repeat;  background-position: center;  }
+.top-container{  width: 100%; min-width: 1000px; height: 784px;  margin: 0 auto;  background: url("../images/background.jpg") no-repeat;  background-position: center;  }
 
 .advertisement{width: 1000px;  margin: 30px auto;  }
 
 
 .article-container .aside{  width: 220px;  background: url("../images/aside_background.jpg") no-repeat top #f6f6f6;  float: right;  padding-top: 20px;  padding: 0px 40px;  }
+
 .article-container .aside .guestIntroduce{  font-family: "Microsoft YaHei";  font-size: 24px;  text-align: center;  line-height: 56px;  color: #858f9d;  }
 .article-container .aside ul li{text-align: center;  }
-.article-container .aside ul li .guestHeadImg{  width: 100px;  height: 100px;  border-radius: 50%;  display: inline-block;  }
+.article-container .aside ul li .guestHeadImg{  width: 100px;  height: 100px;  border-radius: 50%;  display: inline-block; background-color: #ffffff;padding: 5px}
 .article-container .aside ul li .guestHeadImg img{  width: 100px;  height: 100px;  border-radius: 50%;  }
 .article-container .aside ul li .guestName{  font-size: 16px;  text-align: center;  line-height: 74px;  font-family:"Microsoft YaHei";  font-weight: bold;  color: #555555;  }
 .article-container .aside ul li .guestProfile{  font-size: 12px;line-height:20px ;color: #555555; font-family: "NSimSun";  text-align: left;  padding-bottom: 28px;  border-bottom: 1px dashed #d9d9d9;  margin-bottom: 28px;  }
+.article-container .aside ul{padding-top: 20px;}
 
-
-.article-container{  width: 1000px;  margin: 0 auto;  margin-top: -10px;  }
+.article-container{  width: 1000px;  margin: 0 auto;  }
 .article-container .article{  width: 650px;  background: url("../images/article_background.jpg") no-repeat;  background-position: top;  float: left;  padding-top: 56px;  }
 .article-container .article .article-li-left{  width: 300px;  height: 347px;  border-bottom: 1px dashed #d9d9d9;  margin-right: 50px;  margin-top: 25px;  float: left;  }
 .article-container .article .article-li-right{  width: 300px;  height: 347px;  border-bottom: 1px dashed #d9d9d9;  margin-top: 25px;  float: right;  }
@@ -79,7 +80,7 @@ ul,li { list-style:none}
 .img-list-2 ul { width:9999px;}
 .img-list-2 li { float:left; display:inline; width:210px; margin: 0 10px; height:140px; text-align:center; line-height:22px;background-color: antiquewhite;}
 .img-list-2 li p a{ font-size:14px; color:#ffffff!important;font-family: "NSimSun";line-height: 22px;position: relative;  top: 5px;}
-.img-list li p{   color: #ffffff;  height: 50px;  width: 200px;  position: relative;  top: -57px;*top: -52px;  background: rgb(84,103,127); padding-left: 10px;filter:alpha(opacity=80); -moz-opacity:0.8; -khtml-opacity:0.8; opacity:0.8;  }
+.img-list li p{   color: #ffffff;  height: 50px;  width: 200px;  position: relative;  top: -57px;*top: -52px;  background: rgb(84,103,127); padding-left: 10px;filter:alpha(opacity=90); -moz-opacity:0.9; -khtml-opacity:0.9; opacity:0.9;  }
 .img-list-2 li p{color: #ffffff;  height: 32px;  width: 200px;  position: relative;  top: -39px;*top: -34px;  background: rgb(84,103,127);  padding-left: 10px;filter:alpha(opacity=100); -moz-opacity:1; -khtml-opacity:1; opacity:1}
 .img-list li p a,.img-list-2 li p a{  display: block;  text-align: left;  }
  li>p>a:first-child{  font-size: 12px;  font-family: Verdana;  }
@@ -106,7 +107,8 @@ ul,li { list-style:none}
 .mt60{ margin-top:60px;}
 .ml28{ margin-left:28px;}
 .fhc{ width:332px; float:left; background:none; overflow:hidden}
-.footer_1000{ width:1000px; overflow:hidden; margin:0 auto}
+.footcolumn{ width:100%;min-width:1000px;}
+.footer_1000{ width:1000px;min-width:1000px; overflow:hidden; margin:0 auto}
 .foote_l{ width:303px; float:left; background:url(../images/footer_b.jpg) repeat-y right top; padding-left:2px;}
 .foote_l p{ width:270px; color:#8c8c8c; line-height:22px; text-align:justify; margin-left:2px;}
 .foote_m{ width:372px; float:left; background:url(../images/footer_b.jpg) repeat-y right top; padding-left:36px;}
